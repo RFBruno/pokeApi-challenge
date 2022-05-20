@@ -1,5 +1,6 @@
-<section dir="ltr" fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="15px" style="height: 1500px; background-color: rgba(131, 131, 147, 0.781);">
-    <mat-card class="example-card" fxFlex="23">
+<h2 [ngStyle.xs]="{'textAlign': 'center'}">title</h2>
+<section dir="ltr" fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="start start" fxLayoutAlign.xs="center center" fxLayoutGap="15px">
+    <mat-card class="example-card" [ngStyle.xs]="{'margin.px': 20}" fxFlex="23" *ngFor="let item of [1,2,2,2,2,2,2,2,5]">
         <mat-card-header>
             <div mat-card-avatar class="example-header-image"></div>
             <mat-card-title>Shiba Inu</mat-card-title>

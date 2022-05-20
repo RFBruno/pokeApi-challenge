@@ -8,6 +8,11 @@ import { HttpClientModule } from '@angular/common/http';
 
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatListModule} from '@angular/material/list';
+import {MatIconModule} from '@angular/material/icon';
+
+
 import { HomeComponent } from './pages/home/home.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { SidebarComponent } from './pages/sidebar/sidebar.component';
@@ -32,7 +37,10 @@ const ROUTES: Routes = [
     HttpClientModule,
 
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    MatSidenavModule,
+    MatListModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

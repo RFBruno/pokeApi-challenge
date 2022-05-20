@@ -1,3 +1,45 @@
-<p>sidebar works!</p>
-<router-outlet></router-outlet>
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #drawer class="sidenav" fixedInViewport
+		[attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+		[mode]="(isHandset$ | async) ? 'over' : 'side'"
+		[opened]="(isHandset$ | async) === false">
+	  <mat-nav-list  class="nav-list">
+        <div class="menu-item" fxLayout="column" fxLayoutAlign="center center">
+            <a fxLayoutAlign="center center" mat-list-item routerLinkActive="selected" [routerLink]="'menuItem'"
+                *ngFor="let menuItem of [1]; let i = index;">
+                
+                <span class="iconify {{menuItem}} icon" ></span>
+                <span >
+                    {{menuItem}}
+                </span>
+            </a>
 
+            <!-- <a mat-list-item routerLink="/login">
+                <span class="iconify icon:system-uicons:exit-left icon"></span>
+                <span >
+                    Sair
+                </span>
+            </a> -->
+        </div> 
+	  </mat-nav-list>
+	</mat-sidenav>
+
+    <mat-sidenav-content>
+        <mat-toolbar fxHide fxShow.xs>
+            <button
+              type="button"
+              aria-label="Toggle sidenav"
+              mat-icon-button
+              (click)="drawer.toggle()"
+              *ngIf="isHandset$ | async"
+              >
+              <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+            </button>
+        </mat-toolbar>
+        
+        <div class="container" ngClass.xs="fxClass-xs">
+            <router-outlet></router-outlet>
+        </div>
+    </mat-sidenav-content>
+    
+</mat-sidenav-container>
