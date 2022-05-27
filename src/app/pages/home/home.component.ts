@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PokeapiService } from 'src/app/services/pokeapi.service';
 
 
 
@@ -9,13 +10,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  
+  public list: any[] = [];
   
   constructor(
-
+    public api: PokeapiService
   ) { }
     
   ngOnInit(): void {
+
+    console.log(this.api.cardList);
+    this.list = this.api.cardList;
   }
 
 }

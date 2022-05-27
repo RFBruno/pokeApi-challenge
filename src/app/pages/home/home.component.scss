@@ -1,9 +1,28 @@
+@import '../../../_palleta.scss';
 .example-card {
     max-width: 400px;
     margin-bottom: 15px;
+    
+    .example-header-image {
+      position: relative;
+      
+      background-color: $bg-color;
+      padding: 10px;
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      img{
+        position: absolute;
+        width: 85%;
+        height: 85%;
+      }
+      
+    }
+
+    .main-img{
+      background-color: $bg-color;
+      margin-bottom: 10px;
+    }
   }
   
-  .example-header-image {
-    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-    background-size: cover;
-  }
