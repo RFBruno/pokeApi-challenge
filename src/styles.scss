@@ -1,6 +1,27 @@
+@import '@angular/material/theming';
+@import './palleta';
+
+@include mat-core();
+
+$custom-app-primary: mat-palette($md-pokeprimary);
+$custom-app-secondary: mat-palette($md-pokesecondary,500,600,700);
+$custom-app-warn: mat-palette($md-pokewarn);
+
+$custom-theme: mat-dark-theme($custom-app-primary, $custom-app-secondary, $custom-app-warn);
+
+@include angular-material-theme($custom-theme);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+
+
+
 /* You can add global styles to this file, and also import other style files */
-body{
-    
+
+*{
+    box-sizing: border-box;
+    list-style: none;
 }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

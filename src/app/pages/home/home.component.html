@@ -2,7 +2,7 @@
 <section dir="ltr" [ngStyle.xs]="{'margin.px': 10}" fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="start start" fxLayoutAlign.xs="center center" fxLayoutGap="15px">
     <mat-card color="secondary" class="example-card"  fxFlex="23" *ngFor="let item of list">
         <mat-card-header>
-            <div mat-card-avatar class="example-header-image">
+            <div mat-card-avatar class="example-header-image"    >
                 <img [src]="item.imgUrl.profile">
             </div>
             <mat-card-title>{{item.name | uppercase}}</mat-card-title>
@@ -19,9 +19,9 @@
             </p>
         </mat-card-content>
         <mat-card-actions fxLayout="row wrap" fxLayoutAlign="center start">
-            <button mat-button>
-                <mat-icon aria-hidden="false" aria-label="Example home icon">
-                    star_outline
+            <button mat-button [color]="item.favorite ? 'accent' : 'grey'" (click)="setFavorite(item)">
+                <mat-icon  aria-hidden="false" aria-label="Example home icon" >
+                    {{item.favorite ? 'star' : 'star_outline' }}
                 </mat-icon>
             </button>
             <button mat-button>
@@ -32,3 +32,5 @@
         </mat-card-actions>
     </mat-card>
 </section>
+
+
