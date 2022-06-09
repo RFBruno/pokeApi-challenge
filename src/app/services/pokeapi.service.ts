@@ -29,7 +29,8 @@ export class PokeapiService {
               main : pokeData.sprites.other['official-artwork'].front_default,
               profile : pokeData.sprites.other['dream_world'].front_default,
             },
-            favorite : favorites.includes(pokeData.id)
+            favorite : favorites.includes(pokeData.id),
+            animate : ''
 
           }
           

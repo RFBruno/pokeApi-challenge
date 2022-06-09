@@ -1,11 +1,11 @@
-<h2 [ngStyle.xs]="{'textAlign': 'center'}">title</h2>
+<h2 [ngStyle.xs]="{'textAlign': 'center'}">Todos os pokemons</h2>
 <section dir="ltr" [ngStyle.xs]="{'margin.px': 10}" fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="start start" fxLayoutAlign.xs="center center" fxLayoutGap="15px">
-    <mat-card color="secondary" class="example-card"  fxFlex="23" *ngFor="let item of list">
+    <mat-card @fadeIn [@flip]="item.animate" color="secondary" class="example-card"  fxFlex="23" *ngFor="let item of list;">
         <mat-card-header>
-            <div mat-card-avatar class="example-header-image"    >
+            <div mat-card-avatar class="example-header-image">
                 <img [src]="item.imgUrl.profile">
             </div>
-            <mat-card-title>{{item.name | uppercase}}</mat-card-title>
+            <mat-card-title class="pk-name">{{item.name | uppercase}}</mat-card-title>
             <mat-card-subtitle>Dog Breed</mat-card-subtitle>
         </mat-card-header>
         <div class="main-img" mat-card-image>
