@@ -1,4 +1,13 @@
 <h2 [ngStyle.xs]="{'textAlign': 'center'}">Todos os pokemons</h2>
+<!-- <mat-paginator [length]="length"
+                 [pageSize]="pageSize"
+                 [pageSizeOptions]="pageSizeOptions"
+                 (page)="paginator($event)"
+                 aria-label="Select page"
+                 style="margin-bottom: 10px;"
+                 >
+</mat-paginator> -->
+
 <section dir="ltr" [ngStyle.xs]="{'margin.px': 10}" fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="start start" fxLayoutAlign.xs="center center" fxLayoutGap="15px">
     <mat-card @fadeIn [@flip]="item.animate" color="secondary" class="example-card"  fxFlex="23" *ngFor="let item of list;">
         <mat-card-header>
@@ -32,5 +41,10 @@
         </mat-card-actions>
     </mat-card>
 </section>
-
-
+  
+  <mat-paginator [length]="length"
+                 [pageSize]="pageSize"
+                 [pageSizeOptions]="pageSizeOptions"
+                 (page)="paginator($event)"
+                 aria-label="Select page">
+  </mat-paginator>

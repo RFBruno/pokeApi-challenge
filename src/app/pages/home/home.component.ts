@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PokeapiService } from 'src/app/services/pokeapi.service';
 import { trigger, transition, useAnimation } from '@angular/animations';
 import { fadeIn, flip } from 'ng-animate';
+import { PageEvent } from '@angular/material/paginator';
 
 
 
@@ -18,17 +19,25 @@ import { fadeIn, flip } from 'ng-animate';
 export class HomeComponent implements OnInit {
   
   public list: any[] = [];
+
+  // MatPaginator Inputs
+  length = 0;
+  pageSize = 100;
+  pageSizeOptions: number[] = [10, 25, 100, 500];
   
   constructor(
     public api: PokeapiService
-  ) { }
+  ) {
+    this.api.getPokemons();
+   }
     
-  ngOnInit(): void {
-
-    console.log(this.api.cardList);
-    this.list = this.api.cardList;
+  async ngOnInit() {
+    this.api.getObservavel().subscribe( data =>{
+      this.list = data.cardList;
+      this.length = data.total;
+      console.log(this.list);
+    });
   }
-
   setFavorite(item: any){
     let favorites = JSON.parse(localStorage.getItem('favorites')!) || [];
     
@@ -54,5 +63,15 @@ export class HomeComponent implements OnInit {
 
     localStorage.setItem('favorites', `${JSON.stringify(favorites)}`)
   }
+
+  paginator(event: PageEvent){
+    this.list = [];
+    this.pageSize = event.pageSize;
+    let limit = event.pageSize.toString();
+    let offset = (event.pageIndex * event.pageSize).toString();
+    this.api.getPokemons(limit, offset);
+  }
+
+  
 
 }
